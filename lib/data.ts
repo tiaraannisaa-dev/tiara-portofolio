@@ -22,6 +22,10 @@ export const skills: string[] = [
   "Business Strategy",
   "Women & People Development",
   "Product Owner & Management",
+  "Transformation Strategy",
+  "Change Management",
+  "Leadership",
+  "Problem Solving",
 ];
 
 export const certifications: { name: string; issuer?: string }[] = [
