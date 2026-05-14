@@ -2,10 +2,15 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { PortableText, PortableTextComponents } from "@portabletext/react";
-import { getArticleBySlug } from "@/sanity/lib/fetch";
+import { getArticleBySlug, getArticles } from "@/sanity/lib/fetch";
 import { urlForImage } from "@/sanity/lib/image";
 
 type Params = { params: Promise<{ slug: string }> };
+
+export async function generateStaticParams() {
+  const articles = await getArticles();
+  return articles.map((a) => ({ slug: a.slug }));
+}
 
 export async function generateMetadata({ params }: Params) {
   const { slug } = await params;
